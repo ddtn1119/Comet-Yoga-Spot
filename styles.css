@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans', serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-color: #45fff1;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideIn 0.6s ease-in-out forwards;
+}
+
+/* unique background pictures for each page */
+body.index {
+  background-image: url('yoga-mountain.jpg');
+}
+
+body.classes {
+  background-image: url('daisy.jpg');
+}
+
+body.schedule {
+  background-image: url('ladder-to-cloud.jpg');
+}
+
+body.contact {
+  background-image: url('morning-scene.jpg');
+}
+
+body.about {
+  background-image: url('dallas.jpg');
+}
+
+body.reviews {
+  background-image: url('lake-field.jpg');
+}
+
+body.blog {
+  background-image: url('sunset-beach.jpg');
+}
+
+body.events {
+  background-image: url('silhouette.jpg');
+}
+
+
+/* Header and Navigation */
+header {
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background: #007BFF;
+  border-radius: 5px;
+}
+
+/* Sections */
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+h1, h3, h4 {
+  text-align: center;
+}
+
+description {
+  text-align: center;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #007BFF;
+  color: white;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="submit"] {
+  background: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* slide-in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* slide-out effect */
+.page-exit {
+  animation: slideOut 0.5s ease-in-out forwards;
+}
+
+/* slide-out animation */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    padding: 8px 10px;
+  }
+}
