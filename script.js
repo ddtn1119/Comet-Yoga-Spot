@@ -24,3 +24,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// handle form submissions (review, blog, events, contact)
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript loaded!"); // Debugging: Ensure JS is loading
+
+    const contactForm = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
+
+    if (!contactForm || !successMessage) {
+        console.error("Form or success message not found!");
+        return; // Stop if elements are missing
+    }
+
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent page refresh
+        console.log("Form submitted!"); // Debugging: Ensure event is triggered
+        // ✅ Show success message
+        successMessage.classList.remove("hidden");
+        successMessage.style.display = "block"; // Make sure it shows
+        // ✅ Clear form fields
+        contactForm.reset();
+        // ✅ Hide success message after 5 seconds
+        setTimeout(() => {
+            successMessage.classList.add("hidden");
+            successMessage.style.display = "none";
+        }, 5000);
+    });
+});

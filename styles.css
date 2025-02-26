@@ -153,6 +153,23 @@ input[type="submit"]:hover {
   background: #0056b3;
 }
 
+/* success message styling */
+.hidden {
+  display: none;
+}
+
+#success-message {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #d4edda; /* light green */
+  color: #155724; /* dark green */
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  display: none; /* make sure it is hidden by default */
+}
+
 /* slide-in animation */
 @keyframes slideIn {
   from {
