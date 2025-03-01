@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
 
-/* Global Styles */
+/* global styles */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Noto Sans', serif;
+  font-family: 'Noto Sans', sans-serif;
   margin: 0;
   padding: 0;
   color: #333;
@@ -17,6 +17,13 @@ body {
   opacity: 0;
   transform: translateX(50px);
   animation: slideIn 0.6s ease-in-out forwards;
+}
+
+/* ensure images and videos resize correctly */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* unique background pictures for each page */
@@ -52,8 +59,7 @@ body.events {
   background-image: url('silhouette.jpg');
 }
 
-
-/* Header and Navigation */
+/* header */
 header {
   background: #333;
   color: white;
@@ -61,6 +67,7 @@ header {
   text-align: center;
 }
 
+/* navigation bar */
 nav {
   display: flex;
   justify-content: center;
@@ -80,7 +87,37 @@ nav a:hover {
   border-radius: 5px;
 }
 
-/* Sections */
+/* hamburger menu for mobile */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* sections */
 section {
   max-width: 900px;
   margin: auto;
@@ -99,7 +136,7 @@ description {
   text-align: center;
 }
 
-/* Tables */
+/* tables */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -122,20 +159,20 @@ th {
   color: white;
 }
 
-/* Forms */
+/* forms styling */
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 600px;
+  margin: auto;
 }
 
 input, textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 98%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
 input[type="submit"] {
@@ -143,10 +180,10 @@ input[type="submit"] {
   color: white;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  width: 25%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 12px;
+  font-size: 16px;
+  width: 50%;
+  margin: auto;
 }
 
 input[type="submit"]:hover {
@@ -158,16 +195,19 @@ input[type="submit"]:hover {
   display: none;
 }
 
-#success-message {
+#review-success, #blog-success, #event-success, #contact-success {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
   margin-top: 15px;
-  padding: 10px;
-  background-color: #d4edda; /* light green */
-  color: #155724; /* dark green */
+  padding: 12px;
+  background-color: #d4edda;
+  color: #155724;
   border: 1px solid #c3e6cb;
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
-  display: none; /* make sure it is hidden by default */
+  display: none;
 }
 
 /* slide-in animation */
@@ -199,7 +239,71 @@ input[type="submit"]:hover {
   }
 }
 
-/* Responsive Design */
+/* toggle button */
+#mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#mode-toggle:hover {
+  background: #0056b3;
+}
+
+/* dark mode styles */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode section {
+  background: #333;
+  color: white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode nav {
+  background: #222;
+}
+
+.dark-mode nav a {
+  color: white;
+}
+
+.dark-mode nav a:hover {
+  background: #007BFF;
+}
+
+/* change form input styles in dark mode */
+.dark-mode input, 
+.dark-mode textarea {
+  background: #444;
+  color: white;
+  border: 1px solid #777;
+}
+
+.dark-mode input[type="submit"] {
+  background: #007BFF;
+}
+
+.dark-mode input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  section {
+    max-width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -209,10 +313,42 @@ input[type="submit"]:hover {
   section {
     padding: 15px;
   }
+
+  input {
+    width: 95%;
+  }
+
+  input[type="submit"] {
+    width: 80%;
+  }
+
+  textarea {
+    width: 95%;
+  }
 }
 
 @media (max-width: 480px) {
   nav a {
     padding: 8px 10px;
+  }
+
+  section {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input {
+    width: 95%;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
   }
 }
